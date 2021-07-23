@@ -16,7 +16,8 @@ weatherForm.addEventListener('submit', (e) => {
   messageOne.textContent = 'Loading your Weather!'
   messageTwo.textContent=''
   
-fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+  // path below shortened to remove https: etc for heroku which only needs local file
+fetch('/weather?address=' + location).then((response) => {
   response.json().then((data) => {
     if (data.error) {
       console.log(data.error)

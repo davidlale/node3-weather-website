@@ -8,6 +8,7 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
+const port = process.env.PORT || 3000 // set on Heroku only or default 3000 if heroku not working
 
 // Define the paths for express config (see expressjs.com)
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -118,6 +119,10 @@ app.get('*', (req, res) => {
 
  })
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000')
+// app.listen(3000, () => {
+//   console.log('Server started on port 3000')
+// })
+
+app.listen(port, () => {
+  console.log('Server started on port ' + port)
 })
